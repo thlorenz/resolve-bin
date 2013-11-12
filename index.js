@@ -3,6 +3,14 @@
 var findParentDir = require('find-parent-dir');
 var path = require('path');
 
+/**
+ * Resolves the full path to the bin file of a given package by inspecting the "bin" field in its package.json. 
+ *
+ * @name resolveBin
+ * @function
+ * @param name {String} module name, i.e. 'tap'
+ * @param cb {Function} called back with the full path to the bin file of the module or an error if it couldn't be resolved
+ */
 module.exports = function (name, cb) {
   var mod;
   try {

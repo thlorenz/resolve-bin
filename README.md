@@ -1,6 +1,6 @@
 # resolve-bin [![build status](https://secure.travis-ci.org/thlorenz/resolve-bin.png)](http://travis-ci.org/thlorenz/resolve-bin)
 
-Resolves the full path to the bin file of a given package by inspecting the \"bin\" field in its package.json.
+Resolves the full path to the bin file of a given package by inspecting the `"bin"` field in its package.json.
 
 ```js
 var resolveBin = require('resolve-bin');
@@ -20,6 +20,18 @@ resolveBin('tap', function (err, bin) {
 
 ## API
 
+###*resolveBin(name, cb)*
+
+```
+/**
+ * Resolves the full path to the bin file of a given package by inspecting the "bin" field in its package.json. 
+ *
+ * @name resolveBin
+ * @function
+ * @param name {String} module name, i.e. 'tap'
+ * @param cb {Function} called back with the full path to the bin file of the module or an error if it couldn't be resolved
+ */
+ ```
 
 ## License
 
