@@ -1,6 +1,6 @@
 {
   "name": "resolve-bin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Resolves the full path to the bin file of a given package by inspecting the \"bin\" field in its package.json.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,11 @@
     "tap": "~0.4.3",
     "mocha": "~1.14.0"
   },
-  "keywords": [ "resolve", "bin", "module" ],
+  "keywords": [
+    "resolve",
+    "bin",
+    "module"
+  ],
   "author": {
     "name": "Thorsten Lorenz",
     "email": "thlorenz@gmx.de",
