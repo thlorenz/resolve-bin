@@ -18,7 +18,7 @@
     "tap": "~0.4.3",
     "mocha": "~1.14.0"
   },
-  "keywords": [],
+  "keywords": [ "resolve", "bin", "module" ],
   "author": {
     "name": "Thorsten Lorenz",
     "email": "thlorenz@gmx.de",
