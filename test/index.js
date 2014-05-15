@@ -15,7 +15,7 @@ test('\ntap', function (t) {
     t.equal(relative(bin), 'node_modules/tap/bin/tap.js')
     t.end()
   });
-})    
+})
 
 test('\nmocha', function (t) {
   resolveBin('mocha', function (err, bin) {
@@ -23,7 +23,15 @@ test('\nmocha', function (t) {
     t.equal(relative(bin), 'node_modules/mocha/bin/mocha')
     t.end()
   });
-})    
+})
+
+test('\n_mocha', function (t) {
+  resolveBin('mocha', '_mocha', function (err, bin) {
+    if (err) throw err;
+    t.equal(relative(bin), 'node_modules/mocha/bin/_mocha')
+    t.end()
+  });
+})
 
 test('\nnon-existent', function (t) {
   resolveBin('non-existent', function (err, bin) {
@@ -32,4 +40,4 @@ test('\nnon-existent', function (t) {
     t.similar(err.message, /non-existent/, 'stating module name')
     t.end()
   });
-})    
+})
