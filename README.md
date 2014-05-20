@@ -20,7 +20,7 @@ resolveBin('tap', function (err, bin) {
 
 ## API
 
-###*resolveBin(name, cb)*
+###*resolveBin(name[, opts], cb)*
 
 ```
 /**
@@ -29,6 +29,8 @@ resolveBin('tap', function (err, bin) {
  * @name resolveBin
  * @function
  * @param name {String} module name, i.e. 'tap'
+ * @param [opts] {Object} other optional params
+ * @param [opts.executable] {String} executable name (optional, use if different than the module, e.g. 'buster-test' from 'buster')
  * @param cb {Function} called back with the full path to the bin file of the module or an error if it couldn't be resolved
  */
  ```
