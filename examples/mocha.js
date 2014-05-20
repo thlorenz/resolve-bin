@@ -15,7 +15,7 @@ resolveBin('mocha', function (err, bin) {
 // => [..]/resolve-bin/node_modules/mocha/bin/mocha
 
 
-resolveBin('mocha', '_mocha', function (err, bin) {
+resolveBin('mocha', { executable: '_mocha' }, function (err, bin) {
   if (err) return console.error(err);
   console.log(bin);
 });

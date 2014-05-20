@@ -5,7 +5,7 @@ var test = require('tap').test
 var path = require('path')
 var resolveBin = require('../');
 
-function relative (dir) {
+function relative(dir) {
   return path.relative(path.join(__dirname, '..'), dir)
 }
 
@@ -26,9 +26,17 @@ test('\nmocha', function (t) {
 })
 
 test('\n_mocha', function (t) {
-  resolveBin('mocha', '_mocha', function (err, bin) {
+  resolveBin('mocha', { executable: "_mocha" }, function (err, bin) {
     if (err) throw err;
     t.equal(relative(bin), 'node_modules/mocha/bin/_mocha')
+    t.end()
+  });
+})
+
+test('\nno `executable` in options', function (t) {
+  resolveBin('mocha', {}, function (err, bin) {
+    if (err) throw err;
+    t.equal(relative(bin), 'node_modules/mocha/bin/mocha')
     t.end()
   });
 })

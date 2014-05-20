@@ -9,14 +9,17 @@ var path = require('path');
  * @name resolveBin
  * @function
  * @param name {String} module name, i.e. 'tap'
- * @param [executable] {String} executable name (optional, use if different than the module, e.g. 'buster-test' from 'buster')
+ * @param [opts] {Object} other optional params
+ * @param [opts.executable] {String} executable name (optional, use if different than the module, e.g. 'buster-test' from 'buster')
  * @param cb {Function} called back with the full path to the bin file of the module or an error if it couldn't be resolved
  */
-module.exports = function (name, executable, cb) {
-  if (arguments.length == 2) {
-    cb = executable;
-    executable = name;
+module.exports = function (name, opts, cb) {
+  if (typeof opts === "function") {
+    cb = opts;
+    opts = {};
   }
+  var executable = opts.executable || name;
+
   var mod;
   try {
     mod = require.resolve(name);
