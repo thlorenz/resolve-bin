@@ -8,10 +8,10 @@ var path = require('path');
  *
  * @name resolveBin
  * @function
- * @param name {String} module name, i.e. 'tap'
- * @param [opts] {Object} other optional params
- * @param [opts.executable] {String} executable name (optional, use if different than the module, e.g. 'buster-test' from 'buster')
- * @param cb {Function} called back with the full path to the bin file of the module or an error if it couldn't be resolved
+ * @param {string} name   module name, i.e. 'tap'
+ * @param {Object=} opts            options
+ * @param {string} opts.executable (default: @name) executable name (e.g. 'buster-test')
+ *  @param {function} cb  called back with the full path to the bin file of the module or an error if it couldn't be resolved
  */
 module.exports = function (name, opts, cb) {
   if (typeof opts === "function") {
