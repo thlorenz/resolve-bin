@@ -41,11 +41,19 @@ test('\nno `executable` in options', function (t) {
   });
 })
 
-test('\nnon-existent', function (t) {
+test('\nnon-existent module', function (t) {
   resolveBin('non-existent', function (err, bin) {
     t.ok(err, 'returns error')
     t.equal(err.code, 'MODULE_NOT_FOUND', 'saying module not found')
     t.similar(err.message, /non-existent/, 'stating module name')
+    t.end()
+  });
+})
+
+test('\nnon-existent executable inside module', function (t) {
+  resolveBin('mocha', { executable: "no-such-bin" }, function (err, bin) {
+    t.ok(err, 'returns error')
+    t.similar(err.message, /no bin/i, 'stating module name')
     t.end()
   });
 })
