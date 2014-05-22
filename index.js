@@ -34,10 +34,8 @@ module.exports = function (name, opts, cb) {
     var binfield = pack.bin;
 
     var binpath = typeof binfield === 'object' ? binfield[executable] : binfield;
-    if (!binpath) {
-      cb(new Error("No bin `" + executable + "` in module `" + name + "`"));
-      return;
-    }
+    if (!binpath) return cb(new Error("No bin `" + executable + "` in module `" + name + "`"));
+
     var bin = path.join(dir, binpath);
     cb(null, bin);
   });
