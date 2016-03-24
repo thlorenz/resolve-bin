@@ -40,3 +40,20 @@ module.exports = function (name, opts, cb) {
     cb(null, bin);
   });
 }
+
+module.exports.sync = function sync (name, opts) {
+  opts = opts || {};
+
+  var executable = opts.executable || name;
+
+  var mod = require.resolve(name);
+  var dir = findParentDir.sync(mod, 'package.json')
+
+  var pack = require(path.join(dir, 'package.json'));
+  var binfield = pack.bin;
+
+  var binpath = typeof binfield === 'object' ? binfield[executable] : binfield;
+  if (!binpath) throw new Error("No bin `" + executable + "` in module `" + name + "`");
+
+  return path.join(dir, binpath);
+}

@@ -17,6 +17,12 @@ test('\ntap', function (t) {
   });
 })
 
+test('\ntap sync', function (t) {
+  var bin = resolveBin.sync('tap');
+  t.equal(relative(bin), 'node_modules/tap/bin/tap.js');
+  t.end();
+})
+
 test('\nmocha', function (t) {
   resolveBin('mocha', function (err, bin) {
     if (err) return t.fail(err);
@@ -48,6 +54,13 @@ test('\nnon-existent module', function (t) {
     t.similar(err.message, /non-existent/, 'stating module name')
     t.end()
   });
+})
+
+test('\nnon-existent module sync', function (t) {
+  t.throws(function () {
+    resolveBin.sync('non-existent')
+  })
+  t.end()
 })
 
 test('\nnon-existent executable inside module', function (t) {
