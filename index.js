@@ -41,6 +41,17 @@ module.exports = function (name, opts, cb) {
   });
 }
 
+/**
+ * Resolves the full path to the bin file of a given package by inspecting the "bin" field in its package.json.
+ *
+ * @name resolveBin.sync
+ * @function
+ * @param {string} name   module name, i.e. 'tap'
+ * @param {Object=} opts            options
+ * @param {string} opts.executable (default: @name) executable name (e.g. 'buster-test')
+ * @returns {string}
+ */
+
 module.exports.sync = function sync (name, opts) {
   opts = opts || {};
 
