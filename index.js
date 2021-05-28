@@ -3,6 +3,11 @@
 var findParentDir = require('find-parent-dir');
 var path = require('path');
 
+function requireResolve(name) {
+  const modJson = require.resolve(name+"/package.json");
+  return path.dirname(modJson)
+}
+
 /**
  * Resolves the full path to the bin file of a given package by inspecting the "bin" field in its package.json.
  *
@@ -22,7 +27,7 @@ module.exports = function (name, opts, cb) {
 
   var mod;
   try {
-    mod = require.resolve(name);
+    mod = requireResolve(name);
   } catch (err) {
     return cb(err);
   }
@@ -57,14 +62,15 @@ module.exports.sync = function sync (name, opts) {
 
   var executable = opts.executable || name;
 
-  var mod = require.resolve(name);
+  var mod = requireResolve(name);
+  
   var dir = findParentDir.sync(mod, 'package.json')
-
+  
   var pack = require(path.join(dir, 'package.json'));
   var binfield = pack.bin;
-
+  
   var binpath = typeof binfield === 'object' ? binfield[executable] : binfield;
   if (!binpath) throw new Error("No bin `" + executable + "` in module `" + name + "`");
-
+  
   return path.join(dir, binpath);
 }

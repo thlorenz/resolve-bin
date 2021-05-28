@@ -70,3 +70,17 @@ test('\nnon-existent executable inside module', function (t) {
     t.end()
   });
 })
+
+test('\nopen-cli (without "main" field in package.json', function (t) {
+  resolveBin('open-cli', function (err, bin) {
+    if (err) return t.fail(err);
+    t.equal(relative(bin), 'node_modules/open-cli/cli.js')
+    t.end()
+  });
+})
+
+test('\nopen-cli (without "main" field in package.json, sync', function (t) {
+  const bin = resolveBin.sync('open-cli');
+  t.equal(relative(bin), 'node_modules/open-cli/cli.js')
+  t.end()
+})
