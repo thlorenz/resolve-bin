@@ -3,10 +3,10 @@
 var resolveBin = require('../');
 
 // package.json:
-//  "bin": {
-//    "mocha": "./bin/mocha",
-//    "_mocha": "./bin/_mocha"
-//  },
+// "bin": {
+//   "open-cli": "cli.js"
+// },
+
 resolveBin('open-cli', function (err, bin) {
   if (err) return console.error(err);
   console.log(bin);
