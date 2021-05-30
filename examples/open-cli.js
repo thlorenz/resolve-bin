@@ -12,7 +12,7 @@ resolveBin('open-cli', function (err, bin) {
   console.log(bin);
 });
 
-// => [..]/resolve-bin/node_modules/mocha/bin/mocha
+// => [..]/resolve-bin/node_modules/open-cli/cli.js
 
 
 resolveBin('open-cli', { executable: 'open-cli' }, function (err, bin) {
@@ -20,4 +20,4 @@ resolveBin('open-cli', { executable: 'open-cli' }, function (err, bin) {
   console.log(bin);
 });
 
-// => [..]/resolve-bin/node_modules/mocha/bin/_mocha
+// => [..]/resolve-bin/node_modules/open-cli/cli.js
