@@ -21,3 +21,7 @@ resolveBin('open-cli', { executable: 'open-cli' }, function (err, bin) {
 });
 
 // => [..]/resolve-bin/node_modules/open-cli/cli.js
+
+console.log(resolveBin.sync('open-cli'));
+// => [..]/resolve-bin/node_modules/open-cli/cli.js
+
