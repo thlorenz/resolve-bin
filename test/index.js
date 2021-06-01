@@ -70,3 +70,39 @@ test('\nnon-existent executable inside module', function (t) {
     t.end()
   });
 })
+
+test('\nopen-cli (without "main" field in package.json)', function (t) {
+  resolveBin('open-cli', function (err, bin) {
+    if (err) return t.fail(err);
+    t.equal(relative(bin), 'node_modules/open-cli/cli.js')
+    t.end()
+  });
+})
+
+test('\nopen-cli (without "main" field in package.json), sync', function (t) {
+  const bin = resolveBin.sync('open-cli');
+  t.equal(relative(bin), 'node_modules/open-cli/cli.js')
+  t.end()
+})
+
+test('\ndependency-cruise (cannot import package.json)', function (t) {
+  resolveBin('dependency-cruiser', function (err, bin) {
+    if (err) return t.fail(err);
+    t.equal(relative(bin), 'node_modules/dependency-cruiser/bin/dependency-cruise.js')
+    t.end()
+  });
+})
+
+test('\ndependency-cruise (cannot import package.json)', function (t) {
+  resolveBin('dependency-cruiser', {executable:"depcruise"}, function (err, bin) {
+    if (err) return t.fail(err);
+    t.equal(relative(bin), 'node_modules/dependency-cruiser/bin/dependency-cruise.js')
+    t.end()
+  });
+})
+
+test('\ndependency-cruise (cannot import package.json)', function (t) {
+  const bin = resolveBin.sync('dependency-cruiser');
+  t.equal(relative(bin), 'node_modules/dependency-cruiser/bin/dependency-cruise.js')
+  t.end()
+})
