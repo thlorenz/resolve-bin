@@ -4,7 +4,7 @@
   "description": "Resolves the full path to the bin file of a given package by inspecting the \"bin\" field in its package.json.",
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/{**/*,*}.test.js"
   },
   "repository": {
     "type": "git",

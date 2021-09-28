@@ -4,10 +4,11 @@ var findParentDir = require('find-parent-dir');
 var path = require('path');
 
 function requireResolve(name) {
+  var requireOpts = { paths: require.main.paths };
   try {
-    return require.resolve(name);
+    return require.resolve(name, requireOpts);
   } catch (err) {
-    var modJson = require.resolve(name+"/package.json");
+    var modJson = require.resolve(name+"/package.json", requireOpts);
     return path.dirname(modJson)
   }
 }
