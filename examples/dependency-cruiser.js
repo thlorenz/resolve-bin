@@ -25,7 +25,7 @@ resolveBin('dependency-cruiser', {executable:"depcruise"}, function (err, bin) {
 
 // => [..]/resolve-bin/node_modules/dependency-cruiser/bin/dependency-cruise.js
 
-const path = resolveBin.sync('dependency-cruiser', { executable: 'depcruise' });
+var path = resolveBin.sync('dependency-cruiser', { executable: 'depcruise' });
 console.log(path);
 
 // => [..]/resolve-bin/node_modules/dependency-cruiser/bin/dependency-cruise.js
