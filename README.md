@@ -1,4 +1,4 @@
-# resolve-bin [![build status](https://secure.travis-ci.org/thlorenz/resolve-bin.png)](http://travis-ci.org/thlorenz/resolve-bin)
+# resolve-bin [![Tests](https://github.com/thlorenz/resolve-bin/actions/workflows/test.yml/badge.svg)](https://github.com/thlorenz/resolve-bin/actions/workflows/test.yml)
 
 Resolves the full path to the bin file of a given package by inspecting the `"bin"` field in its package.json.
 
