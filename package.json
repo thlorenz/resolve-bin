@@ -1,6 +1,6 @@
 {
   "name": "resolve-bin",
-  "version": "0.4.2",
+  "version": "1.0.0",
   "description": "Resolves the full path to the bin file of a given package by inspecting the \"bin\" field in its package.json.",
   "main": "index.js",
   "scripts": {
