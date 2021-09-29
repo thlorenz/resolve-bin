@@ -17,7 +17,7 @@ test('\rtest-package (nested local)', function (t) {
 });
 
 test('\ntest-package (nested local), sync', function (t) {
-  const bin = resolveBin.sync('test-package');
+  var bin = resolveBin.sync('test-package');
   t.equal(relative(bin), 'node_modules/test-package/bin.js');
   t.end();
 });
