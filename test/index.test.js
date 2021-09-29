@@ -3,7 +3,7 @@
 
 var test = require('tap').test
 var path = require('path')
-var resolveBin = require('../');
+var resolveBin = require('..');
 
 function relative(dir) {
   return path.relative(path.join(__dirname, '..'), dir)

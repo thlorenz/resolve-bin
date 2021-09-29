@@ -1,0 +1,6 @@
+{
+  "name": "nested-repository-test",
+  "dependencies": {
+    "test-package": "file:./node_modules/test"
+  }
+}
