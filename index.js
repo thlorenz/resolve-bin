@@ -7,7 +7,7 @@ function requireResolve(name) {
   try {
     return require.resolve(name);
   } catch (err) {
-    const modJson = require.resolve(name+"/package.json");
+    var modJson = require.resolve(name+"/package.json");
     return path.dirname(modJson)
   }
 }

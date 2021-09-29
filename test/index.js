@@ -80,7 +80,7 @@ test('\nopen-cli (without "main" field in package.json)', function (t) {
 })
 
 test('\nopen-cli (without "main" field in package.json), sync', function (t) {
-  const bin = resolveBin.sync('open-cli');
+  var bin = resolveBin.sync('open-cli');
   t.equal(relative(bin), 'node_modules/open-cli/cli.js')
   t.end()
 })
@@ -102,7 +102,7 @@ test('\ndependency-cruise (cannot import package.json)', function (t) {
 })
 
 test('\ndependency-cruise (cannot import package.json)', function (t) {
-  const bin = resolveBin.sync('dependency-cruiser');
+  var bin = resolveBin.sync('dependency-cruiser');
   t.equal(relative(bin), 'node_modules/dependency-cruiser/bin/dependency-cruise.js')
   t.end()
 })
