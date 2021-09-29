@@ -35,6 +35,6 @@
     "url": "https://github.com/thlorenz/resolve-bin/blob/master/LICENSE"
   },
   "engine": {
-    "node": ">=0.6"
+    "node": ">= 12"
   }
 }
