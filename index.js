@@ -4,7 +4,9 @@ var findParentDir = require('find-parent-dir');
 var path = require('path');
 
 function requireResolve(name) {
-  var requireOpts = { paths: require.main.paths };
+  var requireOpts = {
+    paths: require.main ? require.main.paths : module.paths
+  };
   try {
     return require.resolve(name, requireOpts);
   } catch (err) {
